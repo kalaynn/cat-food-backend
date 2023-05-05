@@ -25,8 +25,8 @@ public class WebStoreContext : DbContext
             Category = "food"
         });
         modelBuilder.Entity<Product>().HasData(new Product {
-            Description = "Wet Food",
-            Name = "Hearty, chunky, pieces of 84% mercury-free tuna. 1 kilogram of wet food.",
+            Name = "Wet Food",
+            Description = "Hearty, chunky, pieces of 84% mercury-free tuna. 1 kilogram of wet food.",
             Price = 23.45m,
             Category = "food"
         });

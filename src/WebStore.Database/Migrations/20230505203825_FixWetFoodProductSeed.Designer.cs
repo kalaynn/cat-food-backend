@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebStore.Database;
 
@@ -10,9 +11,11 @@ using WebStore.Database;
 namespace WebStore.Database.Migrations
 {
     [DbContext(typeof(WebStoreContext))]
-    partial class WebStoreContextModelSnapshot : ModelSnapshot
+    [Migration("20230505203825_FixWetFoodProductSeed")]
+    partial class FixWetFoodProductSeed
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.5");
