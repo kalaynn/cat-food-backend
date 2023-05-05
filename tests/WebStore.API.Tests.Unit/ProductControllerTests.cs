@@ -76,7 +76,7 @@ public class ProductControllerTests
         _productRepository.GetById(product.Id).Returns(product);
 
         // Act
-        var result = (OkObjectResult)await _sut.Get(new GetProductRequest(product.Id));
+        var result = (OkObjectResult)await _sut.Get(product.Id);
 
         // Assert
         result.StatusCode.Should().Be(200);
@@ -90,7 +90,7 @@ public class ProductControllerTests
         _productRepository.GetById(Arg.Any<Guid>()).ReturnsNull();
 
         // Act
-        var result = (NotFoundResult)await _sut.Get(new GetProductRequest(Guid.NewGuid()));
+        var result = (NotFoundResult)await _sut.Get(Guid.NewGuid());
 
         // Assert
         result.StatusCode.Should().Be(404);

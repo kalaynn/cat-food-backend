@@ -26,10 +26,10 @@ public class ProductController : ControllerBase
     }
     
     [HttpGet]
-    [Route("{id}")]
-    public async Task<IActionResult> Get(GetProductRequest productRequest)
+    [Route("{id:guid}")]
+    public async Task<IActionResult> Get(Guid id)
     {
-        var product = _productRepository.GetById(productRequest.Id);
+        var product = _productRepository.GetById(id);
 
         if (product is null) {
             return NotFound();
