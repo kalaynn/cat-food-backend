@@ -25,16 +25,18 @@ public class ProductControllerTests
     {
         // Arrange
         Product[] products = {
-            new Product(
-                "Dry Food",
-                "Premium, delicious, kibble made from free range, grass-fed horses",
-                1234
-            ),
-            new Product(
-                "Wet Food",
-                "Hearty, chunky, pieces of 84% mercury-free tuna",
-                2345
-            )
+            new Product {
+                Name = "Dry Food",
+                Description = "Premium, delicious, kibble made from free range, grass-fed horses",
+                Price = 12.34m,
+                Category = "food"
+            },
+            new Product {
+                Description = "Wet Food",
+                Name = "Hearty, chunky, pieces of 84% mercury-free tuna",
+                Price = 23.45m,
+                Category = "food"
+            }
         };
         _productRepository.List().Returns(products);
 
@@ -64,11 +66,12 @@ public class ProductControllerTests
     public async Task Get_ReturnsOkAndObject_WhenProductExists()
     {
         // Arrange
-        var product = new Product(
-            "Dry Food",
-            "Premium, delicious, kibble made from free range, grass-fed horses",
-            1234
-        );
+        var product = new Product {
+            Name = "Dry Food",
+            Description = "Premium, delicious, kibble made from free range, grass-fed horses",
+            Price = 12.34m,
+            Category = "food"
+        };
 
         _productRepository.GetById(product.Id).Returns(product);
 
@@ -97,16 +100,17 @@ public class ProductControllerTests
     public async Task Create_ReturnsOk_WhenProductCreated()
     {
         // Arrange
-        var product = new Product(
-            "Dry Food",
-            "Premium, delicious, kibble made from free range, grass-fed horses",
-            1234
-        );
+        var product = new Product {
+            Name = "Dry Food",
+            Description = "Premium, delicious, kibble made from free range, grass-fed horses",
+            Price = 12.34m,
+            Category = "food"
+        };
 
         _productRepository.Add(Arg.Any<Product>()).Returns(true);
 
         // Act
-        var result = (OkResult)await _sut.Create(new CreateProductRequest(product.Name, product.Description, product.Price));
+        var result = (OkResult)await _sut.Create(new CreateProductRequest(product.Name, product.Description, product.Price, product.Category));
 
         // Assert
         result.StatusCode.Should().Be(200);
@@ -116,16 +120,17 @@ public class ProductControllerTests
     public async Task Create_ReturnsBadRequest_WhenProductNotCreated()
     {
         // Arrange
-        var product = new Product(
-            "Dry Food",
-            "Premium, delicious, kibble made from free range, grass-fed horses",
-            1234
-        );
+        var product = new Product {
+            Name = "Dry Food",
+            Description = "Premium, delicious, kibble made from free range, grass-fed horses",
+            Price = 12.34m,
+            Category = "food"
+        };
 
         _productRepository.Add(Arg.Any<Product>()).Returns(false);
 
         // Act
-        var result = (BadRequestResult)await _sut.Create(new CreateProductRequest(product.Name, product.Description, product.Price));
+        var result = (BadRequestResult)await _sut.Create(new CreateProductRequest(product.Name, product.Description, product.Price, product.Category));
 
         // Assert
         result.StatusCode.Should().Be(400);
@@ -135,16 +140,17 @@ public class ProductControllerTests
     public async Task Update_ReturnsOk_WhenProductUpdated()
     {
         // Arrange
-        var product = new Product(
-            "Dry Food",
-            "Premium, delicious, kibble made from free range, grass-fed horses",
-            1234
-        );
+        var product = new Product {
+            Name = "Dry Food",
+            Description = "Premium, delicious, kibble made from free range, grass-fed horses",
+            Price = 12.34m,
+            Category = "food"
+        };
 
         _productRepository.Update(Arg.Any<Product>()).Returns(true);
 
         // Act
-        var result = (OkResult)await _sut.Update(new UpdateProductRequest(product.Id, product.Name, product.Description, product.Price));
+        var result = (OkResult)await _sut.Update(new UpdateProductRequest(product.Id, product.Name, product.Description, product.Price, product.Category));
 
         // Assert
         result.StatusCode.Should().Be(200);
@@ -154,16 +160,17 @@ public class ProductControllerTests
     public async Task Update_ReturnsBadRequest_WhenProductNotUpdated()
     {
         // Arrange
-        var product = new Product(
-            "Dry Food",
-            "Premium, delicious, kibble made from free range, grass-fed horses",
-            1234
-        );
+        var product = new Product {
+            Name = "Dry Food",
+            Description = "Premium, delicious, kibble made from free range, grass-fed horses",
+            Price = 12.34m,
+            Category = "food"
+        };
 
         _productRepository.Update(Arg.Any<Product>()).Returns(false);
 
         // Act
-        var result = (BadRequestResult)await _sut.Update(new UpdateProductRequest(product.Id, product.Name, product.Description, product.Price));
+        var result = (BadRequestResult)await _sut.Update(new UpdateProductRequest(product.Id, product.Name, product.Description, product.Price, product.Category));
 
         // Assert
         result.StatusCode.Should().Be(400);

@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebStore.Core", "src\WebSto
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebStore.Infrastructure", "src\WebStore.Infrastructure\WebStore.Infrastructure.csproj", "{0099B2F0-43B9-48A3-8314-44D4024199CA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebStore.Migrations", "src\WebStore.Migrations\WebStore.Migrations.csproj", "{CAD583E1-3B13-4D85-8E51-A957C6491AE6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebStore.Database", "src\WebStore.Database\WebStore.Database.csproj", "{CAD583E1-3B13-4D85-8E51-A957C6491AE6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{FD58A5C2-4130-4F89-9E08-19B918BD373B}"
 EndProject

@@ -7,22 +7,17 @@ namespace WebStore.Core.Models;
 
 public class Product : EntityBase
 {
-    public Product(string name, string description, decimal price)
+    public Product()
     {
         this.Id = Guid.NewGuid();
-        this.Name = name;
-        this.Description = description;
-        this.Price = price;
     }
-    public Product(Guid id, string name, string description, decimal price)
+    public Product(Guid id)
     {
         this.Id = id;
-        this.Name = name;
-        this.Description = description;
-        this.Price = price;
     }
 
     public string Name { get; set; }
     public string Description { get; set; }
     public decimal Price { get; set; }
+    public string Category { get; set; }
 }

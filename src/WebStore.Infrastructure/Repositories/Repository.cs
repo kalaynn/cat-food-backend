@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 using WebStore.Core;
-using WebStore.Migrations;
+using WebStore.Database;
 using WebStore.Infrastructure.Interfaces;
 
 namespace WebStore.Infrastructure.Repositories;

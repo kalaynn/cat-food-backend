@@ -51,7 +51,7 @@ public class ProductController : ControllerBase
         return Ok();
     }
 
-    [HttpPost]
+    [HttpPut]
     public async Task<IActionResult> Update(UpdateProductRequest updateProductRequest)
     {
         var success = _productRepository.Update(updateProductRequest.toProduct());
